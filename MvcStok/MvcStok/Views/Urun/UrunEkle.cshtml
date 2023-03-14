@@ -1,0 +1,41 @@
+﻿@model MvcStok.Models.Entity.TBLURUNLER
+@{
+    ViewBag.Title = "UrunEkle";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<form method="post">
+    <div class="form-group">
+        <label for="exampleInputName">Ad</label>
+        <input type="text" class="form-control" id="exampleInputName" name="URUNAD" placeholder="Ad giriniz" required maxlength="10">
+
+    </div>
+    <div class="form-group">
+        <label for="exampleInputSurname">Marka</label>
+        <input type="text" class="form-control" id="exampleInputSurname" name="MARKA" placeholder="Marka Giriniz" required maxlength="10">
+    </div>
+
+    <div class="form-group">
+        <label for="kategoriler">Kategori</label>
+        @Html.DropDownListFor(
+       m=>m.TBLKATEGORILER.KATEGORIID,
+       (List<SelectListItem>) ViewBag.dgr,
+       new {@class="form-control"}
+       )
+    </div>
+
+    <div class="form-group">
+        <label for="exampleInputSurname">Fiyat</label>
+        <input type="number" min="1" step="any" class="form-control" id="exampleInputSurname" name="FIYAT" placeholder="Fiyat Giriniz">
+    </div>
+
+    <div class="form-group">
+        <label for="exampleInputSurname">Stok</label>
+        <input type="number" class="form-control" id="exampleInputSurname" name="STOK" placeholder="Stok Giriniz">
+    </div>
+
+
+
+    <button type="submit" class="btn btn-primary">Ekle</button>
+</form>
+
